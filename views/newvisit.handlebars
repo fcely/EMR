@@ -1,0 +1,108 @@
+
+
+<body >
+
+<div class="container">
+
+
+
+    <h4 class="row mt-4 border p-2">
+   <div class="column">      
+    Patient: {{patient.Patient_First_Name}} {{patient.Patient_Last_Name}}
+    </div>
+   <div class="column ml-5">
+         DOB: {{patient.DOB}}
+  </div>
+  <div class="column  ml-5">
+          Phone: {{patient.Phone}}
+   </div> 
+    </h4>
+
+   
+  <div class="row">
+
+
+    <form class=" p-4 border column-5" action="/visits/new " method="POST"  id="visits">
+    <fieldset>
+  
+    <div class="form-group">
+  
+    <input id="Patient_Id" name="Patient_Id" type="hidden" value="{{patient.Patient_Id}}">
+  
+    <label class="col-md-6 control-label">Doctor</label>
+    <select name="Doctor_Id" class="form-control selectpicker" >
+         <option>Select Doctor</option>
+      {{#each doctor}}     
+          <option value="{{this.Doctor_Id}}">{{this.Doctor_Name}}</option>
+      {{/each}}   
+    </select>
+
+
+      <label class="col-md-6 control-label">Date</label>  
+      <input name="Visit_Date"  class="form-control" type="date">
+
+      <label class="col-md-6 control-label">Time</label>  
+      <input name="Visit_Time"  class="form-control" type="time">
+   
+      
+    </div>
+    
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label"></label>
+      <div class="col-md-4">
+        <button type="submit" class="btn btn-primary" >Schedule Visit <span class="glyphicon glyphicon-send"></span></button>
+      </div>
+    </div>
+    
+    </fieldset>
+    </form>
+
+
+
+
+
+
+
+<div class="column ml-4">
+
+
+<table class="table table-hover tablesorter" id="myTable">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Date</th>  
+ 									<th scope="col">Doctor</th>
+									<th scope="col">Specialty</th>
+									<th scope="col"></th>          
+                </tr>
+              </thead>
+              <tbody class="info table-hover">
+
+  {{#each visit}}
+  	<tr class="tableRow " data-id="{{this.Visit_Id}}">
+
+      <td> {{this.Visit_Month}}-{{this.Visit_Day}}-{{this.Visit_Year}} </td>
+			<td> {{this.Doctor_Name}} </td>
+			<td> {{this.Doctor_Specialty}} </td>
+      <td> <button onclick="location.href = './visits/delete/{{this.Visit_Id}}/{{this.Patient_Id}}' " data-id="{{this.Visit_Id}}" class="cancel float-right btn-danger">Cancel</button> </td>
+      <td> <button onclick="location.href = './visits/log/{{this.Visit_Id}}' " data-id="{{this.Visit_Id}}" class="log-in float-right btn-success">Log-In</button> </td>
+  	
+    </tr>
+  {{/each}}
+              
+              </tbody>
+            </table>
+         
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+</body>

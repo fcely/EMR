@@ -1,0 +1,159 @@
+
+
+<body >
+
+<div class="m-4">
+
+
+
+    <h4 class="row mt-4 border p-2">
+  <div class="column">      
+          Patient: {{visit.0.Patient_First_Name}} {{visit.0.Patient_Last_Name}}
+  </div>
+  
+  <div class="column ml-5">
+          DOB: {{visit.0.DOB_Year}}-{{visit.0.DOB_Month}}-{{visit.0.DOB_Day}}
+  </div>
+
+  <div class="column  ml-5">
+          Phone: {{visit.0.Phone}}  
+   </div> 
+
+  <div class="column  ml-5">
+          Doctor: {{current.0.Doctor_Name}}-{{current.0.Doctor_Specialty}}
+  </div>
+
+
+    </h4>
+
+   
+  <div class="row">
+
+
+    <form class=" p-4 border column-5" action="/visits/log/update " method="POST"  id="visits">
+    <fieldset>
+  
+    <div class="form-group">
+  
+      <input id="Visit_Id" name="Visit_Id" type="hidden" value="{{current.0.Visit_Id}}">
+  
+      <label class="col-md-12 control-label">Blood Pressure Systolic</label>  
+      <input name="Blood_Pressure_S"  class="form-control" type="Number" value="{{current.0.Blood_Pressure_S}}">
+
+      <label class="col-md-12 control-label">Blood Pressure Diastolic</label>  
+      <input name="Blood_Pressure_D"  class="form-control" type="Number" value="{{current.0.Blood_Pressure_D}}">
+
+      <label class="col-md-12 control-label">Weight</label>  
+      <input name="Weight"  class="form-control" type="Number" value="{{current.0.Weight}}">
+
+      <label class="col-md-12 control-label">Temperature</label>  
+      <input name="Temperature"  class="form-control" type="Number" value="{{current.0.Temperature}}">
+
+      <label class="col-lg-12 control-label">Patient Concerns</label>  
+      <textarea class="form-control" name="History" placeholder="Patient Concerns" >{{current.0.History}}</textarea>
+      
+      <label class="col-lg-12 control-label">Diagnose</label>  
+      <textarea class="form-control" name="Diagnose" placeholder="Diagnose" > {{current.0.Diagnose}} </textarea>
+
+      <label class="col-lg-12 control-label">Prescription</label>  
+      <textarea class="form-control" name="Prescription" placeholder="Prescription" >{{current.0.Prescription}}</textarea>
+   
+   
+      
+    </div>
+    
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label"></label>
+      <div class="col-md-4">
+        <button type="submit" class="btn btn-primary" >Save <span class="glyphicon glyphicon-send"></span></button>
+      </div>
+    </div>
+    
+    </fieldset>
+    </form>
+
+<div class="column ml-4">
+
+<table class="table table-hover tablesorter" id="myTable">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Date</th> 
+                  <th scope="col">Doctor</th> 
+ 									<th scope="col">Concerns</th>
+									<th scope="col">Diagnose</th>
+                  <th scope="col">Prescription</th>
+                </tr>
+              </thead>
+              <tbody class="info table-hover">
+
+  {{#each visit}}
+  	<tr class="tableRow " data-id="{{this.Visit_Id}}">
+
+      <td> {{this.Visit_Month}}-{{this.Visit_Day}}-{{this.Visit_Year}} </td>
+			<td> {{this.Doctor_Name}} </td>
+      <td> {{this.History}} </td>
+			<td> {{this.Diagnose}} </td>
+      <td> {{this.Prescription}} </td>
+    
+  	</tr>
+  {{/each}}
+              
+              </tbody>
+            </table>
+         
+
+
+
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxddssa--->
+
+
+
+  <html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Date', 'BPS', 'BPD', 'Weight'],
+          ['2004',  1000,      400,1],
+          ['2005',  1170,      460,1],
+          ['2006',  660,       1120,1],
+          ['2007',  1030,      540,1]
+        ]);
+
+        var options = {
+          title: 'KPI',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+  </body>
+</html>
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+</div>
+</body>

@@ -1,0 +1,229 @@
+
+
+<body >
+
+<div class="container">
+
+ <form class="well form-horizontal" action="/patients/update " method="POST"  id="contact_form">
+    <fieldset>
+    
+<input id="Patient_Id" name="Patient_Id" type="hidden" value="{{patient.Patient_Id}}">
+
+
+    <!-- Form Name -->
+    <legend>Add New Patient</legend>
+    
+    <!-- Text input-->
+    
+    <div class="form-group">
+      <label class="col-md-4 control-label">First Name  </label>  
+      <div class="col-md-4 inputGroupContainer">
+      <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input  name="Patient_First_Name" placeholder="First Name" class="form-control"  type="text" value="{{patient.Patient_First_Name}}">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Text input-->
+    
+    <div class="form-group">
+      <label class="col-md-4 control-label" >Last Name</label> 
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input name="Patient_Last_Name" placeholder="Last Name" class="form-control"  type="text" value="{{patient.Patient_Last_Name}}" >
+        </div>
+      </div>
+    </div>
+    
+    <!-- Text input-->
+           <div class="form-group">
+      <label class="col-md-4 control-label">E-Mail</label>  
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+      <input name="Patient_Email" placeholder="E-Mail Address" class="form-control"  type="text" value="{{patient.Patient_Email}}" >
+        </div>
+      </div>
+    </div>
+    
+    
+    <!-- Text input-->
+           
+    <div class="form-group">
+      <label class="col-md-4 control-label">Phone #</label>  
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+      <input name="Phone" placeholder="(888) 867-5309" class="form-control" type="text" value="{{patient.Phone}}">
+        </div>
+      </div>
+    </div>
+    
+    <!--Text Input-->
+    <div class="form-group">
+        <label class="col-md-4 control-label">Date of Birth</label>  
+          <div class="col-md-4 inputGroupContainer">
+          <div class="input-date">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+        <input name="DOB"  class="form-control" type="date" value="{{patient.DOB}}">
+          </div>
+        </div>
+      </div>
+      
+    <!-- Text input-->
+          
+    <div class="form-group">
+      <label class="col-md-4 control-label">Address</label>  
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+      <input name="Address" placeholder="Address" class="form-control" type="text" value="{{Address}}">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Text input-->
+     
+    <div class="form-group">
+      <label class="col-md-4 control-label">City</label>  
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+      <input name="City" placeholder="city" class="form-control"  type="text" value="{{patient.City}}">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Select Basic -->
+       
+    <div class="form-group"> 
+      <label class="col-md-4 control-label">State</label>
+        <div class="col-md-4 selectContainer">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+        <select name="State" class="form-control selectpicker"  >
+          <option selected="selected">{{patient.State}}</option>
+          <option>Select state</option>
+          <option>Alabama</option>
+          <option>Alaska</option>
+          <option>Arizona</option>
+          <option>Arkansas</option>
+          <option>California</option>
+          <option>Colorado</option>
+          <option>Connecticut</option>
+          <option>Delaware</option>
+          <option>District of Columbia</option>
+          <option>Florida</option>
+          <option>Georgia</option>
+          <option>Hawaii</option>
+          <option>Idaho</option>
+          <option>Illinois</option>
+          <option>Indiana</option>
+          <option>Iowa</option>
+          <option>Kansas</option>
+          <option>Kentucky</option>
+          <option>Louisiana</option>
+          <option>Maine</option>
+          <option>Maryland</option>
+          <option>Massachusets</option>
+          <option>Michigan</option>
+          <option>Minnesota</option>
+          <option>Mississippi</option>
+          <option>Missouri</option>
+          <option>Montana</option>
+          <option>Nebraska</option>
+          <option>Nevada</option>
+          <option>New Hampshire</option>
+          <option>New Jersey</option>
+          <option>New Mexico</option>
+          <option>New York</option>
+          <option>North Carolina</option>
+          <option>North Dakota</option>
+          <option>Ohio</option>
+          <option>Oklahoma</option>
+          <option>Oregon</option>
+          <option>Pennsylvania</option>
+          <option>Rhode Island</option>
+          <option>South Carolina</option>
+          <option>South Dakota</option>
+          <option>Tennessee</option>
+          <option>Texas</option>
+          <option>Utah</option>
+          <option>Vermont</option>
+          <option>Virginia</option>
+          <option>Washington</option>
+          <option>West Virginia</option>
+          <option>Wisconsin</option>
+          <option>Wyoming</option>
+        </select>
+      </div>
+    </div>
+    </div>
+    
+    <!-- Text input-->
+    
+    <div class="form-group">
+      <label class="col-md-4 control-label">Zip Code</label>  
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+      <input name="Zip" placeholder="Zip Code" class="form-control"  type="text" value="{{patient.Zip}}">
+        </div>
+    </div>
+    </div>
+    
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label">Social Security Number</label>  
+       <div class="col-md-4 inputGroupContainer">
+        <div class="input-social">
+            <span class="input-social-addon"><i class="glyphicon glyphicon-globe"></i></span>
+      <input name="SSN" placeholder="SSN" class="form-control" type="text" value="{{patient.SSN}}">
+        </div>
+      </div>
+    </div>
+    
+    <!-- radio checks -->
+     <div class="form-group"> 
+      <label class="col-md-4 control-label">Gender</label>
+        <div class="col-md-4 selectContainer">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+        <select name="Gender" class="form-control selectpicker" >
+          <option selected="selected">{{patient.Gender}}</option>
+          <option>Male</option>
+          <option>Female</option>
+          </select>
+      </div>
+    </div>
+    </div>
+    
+    <!-- Text area -->
+      
+    <div class="form-group">
+      <label class="col-md-4 control-label">Notes</label>
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                <textarea class="form-control" name="Notes" placeholder="General Notes" >{{patient.Notes}}</textarea>
+      </div>
+      </div>
+    </div>
+    
+    
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label"></label>
+      <div class="col-md-4">
+        <button type="submit" class="btn btn-primary" >Update Patient <span class="glyphicon glyphicon-send"></span></button>
+      </div>
+    </div>
+    
+    </fieldset>
+    </form>
+
+
+</div>
+</body>

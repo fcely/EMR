@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>Title of the document</title>
+    <!-- Material Icon CDN -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS CDN -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- Your custom styles -->
+   <!--   <link rel="stylesheet" href="css/style.css"> -->
+    <!-- Used as an example only to position the footer at the end of the page.
+    You can delete these styles or move it to your custom css file -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
+
+		<!--BootstrapTable-->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
+
+
+    <style>
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        }
+      main {
+        flex: 1 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="#45a049">
+        <div class="nav-wrapper">
+          <div class="container">
+            <a href="#" class="brand-logo"><h1>Clinic<span>&#10010;</span></h1></a>
+            <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="/Patients">Patients</a></li>
+              <li><a href="/Visits">Visits</a></li>
+              <li><a href="/Doctors">Doctors</a></li>
+              <li><a href="/">Home</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-menu">
+              <li>
+                <div class="userView">
+                  <div class="background">
+                    <img src="http://lorempixel.com/output/abstract-q-c-640-480-10.jpg" alt="Background Sidenav">
+                  </div>
+                  <a href="#!user"><img class="circle" src="http://lorempixel.com/output/people-q-c-640-480-9.jpg" alt="User Image Sidenav"></a>
+                  <a href="#!name"><span class="white-text name">John Doe</span></a>
+                  <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+                </div>
+              </li>
+               <li><a href="/Patients">Patients</a></li>
+              <li><a href="/Visits">Visits</a></li>
+              <li><a href="/Doctors">Doctors</a></li>
+              <li><a href="/">Home</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+      <main>
+      <!-- Your content here -->
+      {{{body}}}
+    </main>
+    <footer class="page-footer #45a049">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m8 l6">
+            <h5 class="white-text">Mission Statement</h5>
+            <p class="grey-text text-lighten-4">Our goal is to provide a health management system in an affordable and accessable way, globally. With an easy to use and easy to mantain application for medical records.</p>
+          </div>
+  
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2017 Copyright Text
+        </div>
+      </div>
+    </footer>
+    <!-- jQuery CDN -->
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- Materialize JS CDN -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>
+      $("document").ready(function(){
+        $(".button-collapse").sideNav();
+      });
+    </script>
+  </body>
+</html>

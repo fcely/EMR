@@ -1,0 +1,94 @@
+
+
+<div class="container">
+
+
+
+<body>
+
+<div class="row mt-4">
+
+<input type="text" id="myInput" onkeyup="filterTable()" placeholder="Search for patient">
+
+<table class="table table-hover tablesorter" id="myTable">
+              <thead class="thead-light">
+                <tr>
+                    
+                  <th scope="col">Patient</th>
+									<th scope="col">DOB</th>
+									<th scope="col">Phone</th>
+									<th scope="col"></th>
+                  <th scope="col"></th>
+									<th scope="col"></th>          
+                </tr>
+              </thead>
+              <tbody class="info table-hover">
+
+  {{#each visit}}
+  	<tr class="tableRow" data-id="{{this.Patient_Id}}">
+
+			<td> {{this.Patient_First_Name}} {{this.Patient_Last_Name}} </td>
+			<td> {{this.DOB}} </td>
+			<td> {{this.Phone}} </td>
+      <td> <button onclick="location.href = './patients/update/{{this.Patient_Id}}'" data-id="{{this.Patient_Id}}" class="update float-right ">Update</button> </td>
+      <td> <button onclick="location.href = './visits/new/{{this.Patient_Id}}'" data-id="{{this.Patient_Id}}" class="newVisit float-right ">New Appointment</button> </td>
+  	</tr>
+  {{/each}}
+              
+              </tbody>
+            </table>
+         
+</div>
+
+
+<div class="row">
+
+<button  onclick="location.href = './patients/new' "class="float-right newAppointment mb-3">New Patient</button> 
+
+</div>
+
+</body>
+</div>
+
+
+<script>
+
+// Open Apointment Page
+//$(document).on("click",".newAppointment",function() {
+	//alert("Create apointment")
+  //alert("you click id" + $(this).attr('data-id'))
+//window.open('./patients/new');
+//})
+
+// Open update patient Page
+//$(document).on("click",".updatex",function() {
+//	alert("Update patient")
+//  alert("you click id" + $(this).attr('data-id'))
+//window.open('./patients/new');
+//})
+
+
+
+
+function filterTable() {
+ 
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+</script>

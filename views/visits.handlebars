@@ -1,0 +1,86 @@
+
+
+<div class="container">
+
+
+
+<body>
+
+<div class="row mt-4">
+
+<input type="text" id="myInput" onkeyup="filterTable()" placeholder="Search for patient">
+
+<table class="table table-hover tablesorter" id="myTable">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Date</th>  
+                  <th scope="col">Patient</th>
+									<th scope="col">DOB</th>
+									<th scope="col">Doctor</th>
+									<th scope="col">Specialty</th>
+									<th scope="col"></th>   
+                  <th scope="col"></th>          
+                </tr>
+              </thead>
+              <tbody class="info table-hover">
+
+  {{#each visit}}
+  	<tr class="tableRow" data-id="{{this.Visit_Id}}">
+
+      <td> {{this.Visit_Month}}-{{this.Visit_Day}}-{{this.Visit_Year}} </td>
+			<td> {{this.Patient_First_Name}} {{this.Patient_Last_Name}} </td>
+			<td> {{this.DOB_Month}}-{{this.DOB_Day}}-{{this.DOB_Year}} </td>
+			<td> {{this.Doctor_Name}} </td>
+			<td> {{this.Doctor_Specialty}} </td>
+      <td> <button onclick="location.href = './visits/delete/{{this.Visit_Id}}' " data-id="{{this.Visit_Id}}" class="cancel float-right btn-danger">Cancel</button> </td>
+      <td> <button onclick="location.href = './visits/log/{{this.Visit_Id}}' " data-id="{{this.Visit_Id}}" class="log-in float-right btn-success">Log-In</button> </td>
+ 
+  
+  	</tr>
+  {{/each}}
+              
+              </tbody>
+            </table>
+         
+</div>
+
+
+<div class="row">
+
+
+
+<button onclick="location.href = './patients' " class="float-right newAppointment mb-3">New Appointment</button> 
+
+</div>
+
+</body>
+</div>
+
+
+<script>
+
+
+
+		
+function filterTable() {
+ 
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+</script>
