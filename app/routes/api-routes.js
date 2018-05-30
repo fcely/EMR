@@ -22,6 +22,11 @@ module.exports = function(app) {
  
     })
 
+
+
+
+
+
 // Route to Create new user
 app.post("/doctors/new", function(req, res) {
   db.doctors.create(req.body).then(function(result) {
@@ -50,6 +55,15 @@ app.post("/doctors/new", function(req, res) {
       })  
     })
 
+    app.get("/patients/patients/update/:Patient_Id", function(req, res) {
+      var Patient_Id = req.params.Patient_Id;
+      db.patients.findAll({where: {Patient_Id: Patient_Id}}).then(function(result){
+        //res.json(result)
+        res.render("updatepatient", {patient:result[0]});
+      })  
+    })
+
+
 
  //Route to new user Form
  app.get("/doctors", function(req, res) {
@@ -73,7 +87,7 @@ app.post("/doctors/new", function(req, res) {
     
 // Home Page
   app.get("/", function(req, res) {
-    res.render("intro", { })
+    res.render("dashboard", { })
   });
 
 
@@ -102,6 +116,21 @@ app.get("/visits/log/:Visit_Id", function(req, res) {
     })
 });
 });
+
+
+
+app.get("/api/visit/:Visit_Id", function(req, res) {
+  var Visit_Id = req.params.Visit_Id;
+  result = orm.selectAllVisitsForPacientIdOnVisitId(Visit_Id,function(result) {
+    res.json({ visit_data:result })  
+  
+});})
+
+
+
+
+
+
 
 
 
@@ -143,6 +172,20 @@ app.get("/visits/new/:Patient_Id", function(req, res) {
     })
   })  
 })
+
+app.get("/patients/visits/new/:Patient_Id", function(req, res) {
+  var Patient_Id = req.params.Patient_Id;
+  db.patients.findAll({where: {Patient_Id: Patient_Id}}).then(function(result1){
+    db.doctors.findAll().then(function(result2){
+      orm.selectAllVisitsForPatientId(Patient_Id,function(result3) {
+    //res.json(result3)
+      res.render("newvisit", {patient:result1[0], doctor:result2, visit:result3})
+    })
+    })
+  })  
+})
+
+
 
 
 // Route to Create new visit
