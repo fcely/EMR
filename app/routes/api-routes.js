@@ -125,11 +125,11 @@ app.get("/visits/log/:Visit_Id", function(req, res) {
 });
 
 
-
+// Route for chart
 app.get("/api/visit/:Visit_Id", function(req, res) {
   var Visit_Id = req.params.Visit_Id;
-  result = orm.selectAllVisitsForPacientIdOnVisitId(Visit_Id,function(result) {
-    res.json({ visit_data:result })  
+  result = orm.SelectDataForChart(Visit_Id,function(result) {
+    res.json(result )  
   
 });})
 

@@ -41,6 +41,18 @@ selectAllVisitsForPacientIdOnVisitId: function( valOfCol,cb_result) {
 },
 
 
+SelectDataForChart: function( valOfCol,cb_result) {
+  var queryString = "SELECT date_format(Visit_Date,'%Y-%m-%d') as Visit_Date, IFNULL(Blood_Pressure_S,0) as Blood_Pressure_S,  IFNULL(Blood_Pressure_D,0) as Blood_Pressure_D, IFNULL(Weight,0) as Weight FROM Visits  where Visits.Patient_Id=(select distinct Patient_Id from Visits where Visit_Id=?) order by Visit_Date asc";
+  connection.query(queryString, [ valOfCol], function(err, result) {
+    if (err) throw err;
+    console.log(result);
+    cb_result(result)
+  });
+},
+
+
+
+
 selectAllVisitsForVisitId: function( valOfCol,cb_result) {
   var queryString = "SELECT month(Visit_Date) as Visit_Month, year(Visit_Date) as Visit_Year, day(Visit_Date) as Visit_Day, month(DOB) as DOB_Month, year(DOB) as DOB_Year, day(DOB) as DOB_Day,Visits.*,Patient_First_Name,Patient_Last_Name,Phone, DOB, Doctor_Name, Doctor_Specialty FROM Visits  left join Patients  on Visits.Patient_Id=Patients.Patient_Id left join Doctors on Doctors.Doctor_Id=Visits.Doctor_Id where Visits.Visit_Id=? order by Visit_Date asc";
   connection.query(queryString, [ valOfCol], function(err, result) {
