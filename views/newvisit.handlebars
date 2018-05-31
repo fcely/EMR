@@ -27,7 +27,7 @@
   
     <div class="form-group">
   
-    <input id="Patient_Id" name="Patient_Id" type="hidden" value="{{patient.Patient_Id}}">
+    <input required id="Patient_Id" name="Patient_Id" type="hidden" value="{{patient.Patient_Id}}">
   
     <label class="col-md-6 control-label">Doctor</label>
     <select name="Doctor_Id" class="form-control selectpicker" >
@@ -39,10 +39,10 @@
 
 
       <label class="col-md-6 control-label">Date</label>  
-      <input name="Visit_Date"  class="form-control" type="date">
+      <input required name="Visit_Date"  class="form-control" type="date">
 
       <label class="col-md-6 control-label">Time</label>  
-      <input name="Visit_Time"  class="form-control" type="time">
+      <input required name="Visit_Time"  class="form-control" type="time">
    
       
     </div>
