@@ -136,6 +136,15 @@ app.get("/api/visit/:Visit_Id", function(req, res) {
 
 
 
+// Route to log out
+app.get("/logout", function(req, res) {
+  res.send('<script>window.location.href="https://clinicplus.herokuapp.com/logout";</script>');
+  
+})
+
+
+
+
 
 
 
