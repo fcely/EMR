@@ -4,7 +4,7 @@ var connection = require("../config/connection.js");
 
 var orm = {
   selectAllPatients: function(cb_result) {
-    var queryString = "SELECT * FROM Patients";
+    var queryString = "SELECT Patient_Id,Patient_First_Name,Patient_Last_Name,Patient_Email,Phone,date_format(DOB,'%Y-%m-%d') as DOB,Address,City,State,Zip,SSN,Gender,Notes,Allergies, Alcohol_Use, Tabaco_Use, Mother_History,Father_History, Height FROM Patients";
     connection.query(queryString, function(err, result) {
       if (err) throw err;
       console.log(result)
