@@ -1,12 +1,12 @@
 {
   "name": "emr2",
   "version": "1.0.0",
-  "description": "",
+  "description": "Free EMR",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "UCSD Team Fernando,DJ,Diego,Anthony",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
