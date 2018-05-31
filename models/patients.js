@@ -4,7 +4,7 @@
 // and a devoured attribute that is false by default
 
 module.exports = function(sequelize, DataTypes) {
-  var patients = sequelize.define("patients", 
+  var Patients = sequelize.define("Patients", 
   {
   Patient_Id: { type:DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
   Patient_First_Name: DataTypes.STRING,
@@ -27,5 +27,5 @@ module.exports = function(sequelize, DataTypes) {
   Father_History: DataTypes.STRING,
   Height: DataTypes.FLOAT
   })
-  return patients;
+  return Patients;
 }

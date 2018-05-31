@@ -4,7 +4,7 @@
 // and a devoured attribute that is false by default
 
 module.exports = function(sequelize, DataTypes) {
-  var doctors = sequelize.define("doctors", 
+  var Doctors = sequelize.define("Doctors", 
   {
     
     Doctor_Id: { type:DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
@@ -13,5 +13,5 @@ module.exports = function(sequelize, DataTypes) {
   
  
   })
-  return doctors;
+  return Doctors;
 };

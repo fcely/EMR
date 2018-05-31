@@ -4,7 +4,7 @@
 // and a devoured attribute that is false by default
 
 module.exports = function(sequelize, DataTypes) {
-  var visits = sequelize.define("visits", 
+  var Visits = sequelize.define("Visits", 
   {
   Visit_Id: { type:DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
   Visit_Date: DataTypes.DATE, 
@@ -20,5 +20,5 @@ module.exports = function(sequelize, DataTypes) {
   Diagnose: DataTypes.STRING
   }
   )
-  return visits;
+  return Visits;
 }

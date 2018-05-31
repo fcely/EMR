@@ -10,7 +10,7 @@ module.exports = function(app) {
 
 // Route to Create new patient
   app.post("/patients/new", function(req, res) {
-    db.patients.create(req.body).then(function(result) {
+    db.Patients.create(req.body).then(function(result) {
     //res.redirect("/patients");
     result = orm.selectAllPatients(function(result) {
       var data = result;
@@ -24,12 +24,9 @@ module.exports = function(app) {
 
 
 
-
-
-
 // Route to Create new user
 app.post("/doctors/new", function(req, res) {
-  db.doctors.create(req.body).then(function(result) {
+  db.Doctors.create(req.body).then(function(result) {
   res.redirect("/doctors");
   });
 
@@ -37,7 +34,7 @@ app.post("/doctors/new", function(req, res) {
 
 // Update the patients database
     app.post("/patients/update", function(req, res) {
-    db.patients.update(
+    db.Patients.update(
       req.body,
       {returning: true, where: {Patient_Id: req.body.Patient_Id}}
     )
@@ -49,7 +46,7 @@ app.post("/doctors/new", function(req, res) {
 // Route to call specific patient information to be updated   
     app.get("/patients/update/:Patient_Id", function(req, res) {
       var Patient_Id = req.params.Patient_Id;
-      db.patients.findAll({where: {Patient_Id: Patient_Id}}).then(function(result){
+      db.Patients.findAll({where: {Patient_Id: Patient_Id}}).then(function(result){
         //res.json(result)
         res.render("updatepatient", {patient:result[0]});
       })  
@@ -57,7 +54,7 @@ app.post("/doctors/new", function(req, res) {
 
     app.get("/patients/patients/update/:Patient_Id", function(req, res) {
       var Patient_Id = req.params.Patient_Id;
-      db.patients.findAll({where: {Patient_Id: Patient_Id}}).then(function(result){
+      db.Patients.findAll({where: {Patient_Id: Patient_Id}}).then(function(result){
         //res.json(result)
         res.render("updatepatient", {patient:result[0]});
       })  
@@ -79,8 +76,10 @@ app.post("/doctors/new", function(req, res) {
 
 //Route to display all patients
   app.get("/patients", function(req, res) {
+    //res.json({a:1})
     result = orm.selectAllPatients(function(result) {
       var data = result;
+       //res.json(result)
       res.render("patients", { visit:data });  
     });
   });
@@ -151,7 +150,7 @@ app.get("/visits/new/visits/log/:Visit_Id", function(req, res) {
 
 // Update the  visits  database
 app.post("/visits/log/update", function(req, res) {
-  db.visits.update(
+  db.Visits.update(
     req.body,
     {returning: true, where: {Visit_Id: req.body.Visit_Id}}
   )
@@ -163,8 +162,8 @@ app.post("/visits/log/update", function(req, res) {
 
 app.get("/visits/new/:Patient_Id", function(req, res) {
   var Patient_Id = req.params.Patient_Id;
-  db.patients.findAll({where: {Patient_Id: Patient_Id}}).then(function(result1){
-    db.doctors.findAll().then(function(result2){
+  db.Patients.findAll({where: {Patient_Id: Patient_Id}}).then(function(result1){
+    db.Doctors.findAll().then(function(result2){
       orm.selectAllVisitsForPatientId(Patient_Id,function(result3) {
     //res.json(result3)
       res.render("newvisit", {patient:result1[0], doctor:result2, visit:result3})
@@ -175,8 +174,8 @@ app.get("/visits/new/:Patient_Id", function(req, res) {
 
 app.get("/patients/visits/new/:Patient_Id", function(req, res) {
   var Patient_Id = req.params.Patient_Id;
-  db.patients.findAll({where: {Patient_Id: Patient_Id}}).then(function(result1){
-    db.doctors.findAll().then(function(result2){
+  db.Patients.findAll({where: {Patient_Id: Patient_Id}}).then(function(result1){
+    db.Doctors.findAll().then(function(result2){
       orm.selectAllVisitsForPatientId(Patient_Id,function(result3) {
     //res.json(result3)
       res.render("newvisit", {patient:result1[0], doctor:result2, visit:result3})
@@ -190,7 +189,7 @@ app.get("/patients/visits/new/:Patient_Id", function(req, res) {
 
 // Route to Create new visit
 app.post("/visits/new", function(req, res) {
-  db.visits.create(req.body).then(function(result) {
+  db.Visits.create(req.body).then(function(result) {
   res.redirect("/patients");
   });
 
@@ -199,7 +198,7 @@ app.post("/visits/new", function(req, res) {
 
 app.get("/visits/delete/:Visit_Id", function(req, res) {
   var Visit_Id = req.params.Visit_Id;
-  db.visits.destroy({where: {Visit_Id: Visit_Id}}).then(function(result) {
+  db.Visits.destroy({where: {Visit_Id: Visit_Id}}).then(function(result) {
   res.redirect("/visits")
   });
 
@@ -210,7 +209,7 @@ app.get("/visits/delete/:Visit_Id", function(req, res) {
   app.get("/visits/new/visits/delete/:Visit_Id/:Patient_Id", function(req, res) {
     var Visit_Id = req.params.Visit_Id;
     var Patient_Id = req.params.Patient_Id;
-    db.visits.destroy({where: {Visit_Id: Visit_Id}}).then(function(result) {
+    db.Visits.destroy({where: {Visit_Id: Visit_Id}}).then(function(result) {
     //location.reload()
       res.redirect("/visits/new/" + Patient_Id)
     });

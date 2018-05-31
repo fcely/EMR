@@ -1,20 +1,47 @@
 {
+ 
   "development": {
-    "username": "root",
-    "password": "root",
-    "database": "emr2_db",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+ 
+      "username": "chzu42rvc2qcqsa5" ,
+ 
+      "password": "ujg5rdu7cdnmazhu",
+ 
+      "database": "iixt272nmqi3lny8",
+ 
+      "host": "k9xdebw4k3zynl4u.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+ 
+      "dialect": "mysql"
+ 
   },
+ 
   "test": {
-    "username": "root",
-    "password": "root",
-    "database": "emr2_db",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+ 
+     "username": "chzu42rvc2qcqsa5",
+ 
+     "password": "ujg5rdu7cdnmazhu",
+ 
+     "database": "iixt272nmqi3lny8",
+ 
+     "host": "k9xdebw4k3zynl4u.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+ 
+     "dialect": "mysql"
+ 
+ 
   },
+ 
   "production": {
-    "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql"
-}
-}
+ 
+     "username": "chzu42rvc2qcqsa5",
+ 
+     "password": "ujg5rdu7cdnmazhu",
+ 
+     "database": "iixt272nmqi3lny8",
+ 
+     "host": "k9xdebw4k3zynl4u.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+ 
+     "dialect": "mysql"
+ 
+ 
+  }
+ 
+ }
