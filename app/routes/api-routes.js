@@ -23,25 +23,6 @@ module.exports = function(app) {
     })
 
 
-// Route to Create new patient
-app.post("/patients/patients/new", function(req, res) {
-  db.Patients.create(req.body).then(function(result) {
-  //res.redirect("/patients");
-  result = orm.selectAllPatients(function(result) {
-    var data = result;
-    res.render("patients", { visit:data });  
-  });  
-
-
-});
-
-  })
-
-
-
-
-
-
 
 // Route to Create new user
 app.post("/doctors/new", function(req, res) {
@@ -92,6 +73,14 @@ app.post("/doctors/new", function(req, res) {
   app.get("/patients/new", function(req, res) {
     res.render("newpatient", {  });  
   })
+
+
+  //Route to new Patient Form
+  app.get("/patients/patients/new", function(req, res) {
+    res.render("newpatient", {  });  
+  })
+
+
 
 //Route to display all patients
   app.get("/patients", function(req, res) {
