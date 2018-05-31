@@ -5,22 +5,27 @@
 // Require mysql
 var mysql = require("mysql");
 
-// Set up our connection information
-var connection = mysql.createConnection({
-  port: 3306,
-  host: "localhost",
-  user: "root",
-  password: "root",
-  database: "emr2_db"
-});
+if (process.env.JAWSDB_URL) {
+
+    connection.createConnection(process.env.JAWSDB_URL)
+} else {
+    // Set up our connection information
+    var connection = mysql.createConnection({
+        port: 3306,
+        host: "localhost",
+        user: "root",
+        password: "root",
+        database: "emr2_db"
+    });
+}
 
 // Connect to the database
 connection.connect(function(err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-  console.log("connected as id " + connection.threadId);
+    if (err) {
+        console.error("error connecting: " + err.stack);
+        return;
+    }
+    console.log("connected as id " + connection.threadId);
 });
 
 // Export connection
